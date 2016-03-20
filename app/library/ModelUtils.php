@@ -18,7 +18,10 @@ class ModelUtils {
 	 */
 	public static function getDisqueTarif($disque){
 		//TODO 4.1
-		return null;
+		$idDisque = $disque->getId();
+		$idTarif = DisqueTarif::findFirst($idDisque)->getIdTarif();
+		$tarifDisque = Tarif::findFirst($idTarif)->getPrix();
+		return $tarifDisque;
 	}
 
 	/**

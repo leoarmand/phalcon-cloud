@@ -8,7 +8,19 @@ class ScanController extends ControllerBase {
 	 */
 	public function indexAction($idDisque) {
 		//TODO 4.3
-		$diskName="nom du disque.......................";
+		$controller=$this;
+		$user=Auth::getUser($controller);
+
+		/*$disques = Disque::find(array(
+			"idUser" => $user->getId(),
+			"order" => "name"
+		));*/
+
+		//$occupation = ModelUtils::getDisqueOccupation($disques);
+		//$this->view->setVar("occupation",$occupation);
+
+		//$diskName=Disque::find($idDisque)->getNom();
+		$diskName=$idDisque;
 
 
 		$this->jquery->execOn("click", "#ckSelectAll", "$('.toDelete').prop('checked', $(this).prop('checked'));$('#btDelete').toggle($('.toDelete:checked').length>0)");
